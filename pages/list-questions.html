@@ -1,0 +1,25 @@
+<ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li><a href="#">Library</a></li>
+  <li class="active">Data</li>
+</ol>
+
+<div class="spacer">
+	<a class="btn btn-success"
+	href="#new-question">
+	  <i class="fa fa-plus"></i> Nova Pergunta
+	</a>
+</div>
+
+<div class="">
+	<div class="list-group">
+
+	  <a class="list-group-item"
+		ng-repeat="q in questions"
+		href="#question/{{q.id}}">
+		  {{q.title}}
+	  </a>
+
+	</div>
+</div>
+

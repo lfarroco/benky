@@ -1,0 +1,56 @@
+<ol class="breadcrumb">
+  <li><a href="#home">Home</a></li>
+  <li><a href="#tags">Questionários</a></li>
+  <li class="active">{{tag.name}}</li>
+</ol>
+
+<span class="label label-default">
+	Respondidas: {{answered}} | Total: {{total}} | Corretas: {{correct}}
+</span>
+
+<a
+  class="btn btn-block"
+  ng-repeat="(k,q) in questions"
+  href="#questionnaire/{{id}}/{{q.id}}">
+    {{q.title}}
+</a>
+
+<div class ="btn btn-success btn-block"
+ng-click="start" >
+  start</div>
+
+<div class="panel-body" ng-if="display">
+
+<h2>{{question.title}}</h2>
+
+<div
+  ng-repeat="o in question.options"
+  class="btn btn-block {{o.selected}}"
+  ng-click="select(o)">
+    {{o.text}}
+</div>
+
+<div
+  class="btn btn-block btn-default"
+  ng-click="submit()">
+    Responder
+</div>
+
+<div
+  class="text-success text-center"
+  ng-if="status == 0">
+    Selecione a alternativa correta
+</div>
+
+<div
+  class="text-success text-center "
+  ng-if="status == 1">
+    Correta!
+</div>
+
+<div
+  class="text-warning text-center"
+  ng-if="status == 2">
+    Esta não é a resposta correta
+</div>
+</div>

@@ -1,0 +1,40 @@
+<ol class="breadcrumb">
+  <li><a href="#home">Home</a></li>
+  <li><a href="#questions">Perguntas</a></li>
+  <li class="active">{{question.title}}</li>
+</ol>
+
+<div class="panel-body">
+
+<h3>{{question.title}}</h3>
+
+<div
+  ng-repeat="opt in question.options"
+  class="btn btn-default btn-block {{opt.selected}}"
+  ng-click="select(opt)">
+    {{opt.text}}
+</div>
+
+<div class="btn btn-block btn-success"
+  ng-click="submit()">
+    Responder
+</div>
+
+<div
+  class="text-success text-center"
+  ng-if="status == 0">
+    Selecione a alternativa correta
+</div>
+
+<div
+  class="text-success text-center "
+  ng-if="status == 1">
+    Correta!
+</div>
+
+<div
+  class="text-warning text-center"
+  ng-if="status == 2">
+    Esta não é a resposta correta
+</div>
+</div>
